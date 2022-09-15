@@ -1,19 +1,4 @@
-// var c: number = 1;
-// if (c == 1) {
-//   console.log("1 will print");
-// } else {
-//   console.log("not");
-// }
-// console.log(c);
-// import { type } from "os";
-// let sum: number = 0;
-// let arr1: Array<number> = [1, 2, 2];
-// if (a == '1') {
-//     console.log(true)
-// }
-// else {
-//     console.log(false)
-// }
+// 14-9-2022
 // var a = 1;
 // console.log(typeof a);
 // var b = "1";
@@ -26,11 +11,13 @@
 // console.log(typeof e);
 // c.push("apple");
 // e.push("cat");
+// -----------------------------------------------------
 // if (0 == []) {
 //   console.log("true");
 // } else {
 //   console.log("false");
 // }
+// -------------------------------------------------------
 // let a = [1, 2, 3];
 // let b = 3;
 // var found = false;
@@ -45,6 +32,7 @@
 // } else {
 //   console.log("not found");
 // }
+// ---------------------------------------------------------
 // function sum(a: Array<number>): number {
 //   var sum = 0;
 //   for (let i = 0; i < a.length; i++) {
@@ -53,12 +41,14 @@
 //   return sum;
 // }
 // console.log(sum([1, 2]));
+// ---------------------------------------------------------
 // function sum(a: Array<number>): number {
 //   return (a[0] = 20);
 // }
 // var arr = [1, 2, 3];
 // sum(arr);
 // console.log(arr);
+// -----------------------------------------------------------
 // optional parameter-->?,default parameter,dynamic parameter
 // ------optional
 // function cde(one: number, two: string): any {
@@ -109,11 +99,12 @@
 //   let b = args.reduce((a, b) => a.concat(b));
 //   return b.reduce((a, b) => a + b);
 // }
-// var e = [
+// var j = [
 //   [1, 1, 1, 1],
 //   [1, 2, 3, 3],
 // ];
-// console.log(summation(...e));
+// console.log(summation(...j));
+// -------------------------------------------------------------------------------
 // ---------------------->Object Oriented Programming<--------------//
 // common mistake that should not repeat----------------
 var a = 1;
@@ -174,4 +165,37 @@ var h = new Calc(1, 1);
 console.log("a number and b number", h);
 var i = new Calc("a", 2);
 console.log("a string and b number", i);
+console.log("----------");
+// ------------------------------------------------------------------
+// 15-9-2022
+console.log("15-9-2022");
+console.log("----------");
+var A = /** @class */ (function () {
+    function A(a) {
+        this.a = a;
+    }
+    A.prototype.extend = function (e) {
+        return this.a + e;
+    };
+    return A;
+}());
+var b = new A(4);
+console.log(b.extend(5));
 console.log("--------------------------");
+var B = /** @class */ (function () {
+    function B(a) {
+        this.a = a;
+    }
+    B.prototype.extend = function (e) {
+        return this.a + e;
+    };
+    B.prototype.concat = function (a, e) {
+        this.a = a;
+        var d = this.extend(e);
+        // this.a = a;
+        return d * a;
+    };
+    return B;
+}());
+var x = new B(4);
+console.log(x.concat(5, 2));

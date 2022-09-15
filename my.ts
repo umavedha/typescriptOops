@@ -1,23 +1,5 @@
-// var c: number = 1;
-// if (c == 1) {
-//   console.log("1 will print");
-// } else {
-//   console.log("not");
-// }
-// console.log(c);
+// 14-9-2022
 
-// import { type } from "os";
-
-// let sum: number = 0;
-// let arr1: Array<number> = [1, 2, 2];
-
-// if (a == '1') {
-//     console.log(true)
-// }
-// else {
-//     console.log(false)
-
-// }
 // var a = 1;
 // console.log(typeof a);
 // var b = "1";
@@ -31,11 +13,15 @@
 
 // c.push("apple");
 // e.push("cat");
+// -----------------------------------------------------
+
 // if (0 == []) {
 //   console.log("true");
 // } else {
 //   console.log("false");
 // }
+// -------------------------------------------------------
+
 // let a = [1, 2, 3];
 // let b = 3;
 // var found = false;
@@ -50,6 +36,7 @@
 // } else {
 //   console.log("not found");
 // }
+// ---------------------------------------------------------
 
 // function sum(a: Array<number>): number {
 //   var sum = 0;
@@ -58,21 +45,21 @@
 //   }
 //   return sum;
 // }
-
 // console.log(sum([1, 2]));
+// ---------------------------------------------------------
+
 // function sum(a: Array<number>): number {
 //   return (a[0] = 20);
 // }
 // var arr = [1, 2, 3];
 // sum(arr);
 // console.log(arr);
+// -----------------------------------------------------------
 
 // optional parameter-->?,default parameter,dynamic parameter
 // ------optional
 // function cde(one: number, two: string): any {
-
 //    return two.toLowerCase();
-
 // }
 // cde(2)
 
@@ -124,11 +111,13 @@
 //   let b = args.reduce((a, b) => a.concat(b));
 //   return b.reduce((a, b) => a + b);
 // }
-// var e = [
+// var j = [
 //   [1, 1, 1, 1],
 //   [1, 2, 3, 3],
 // ];
-// console.log(summation(...e));
+// console.log(summation(...j));
+
+// -------------------------------------------------------------------------------
 
 // ---------------------->Object Oriented Programming<--------------//
 
@@ -211,4 +200,40 @@ console.log("a number and b number", h);
 let i: Calc = new Calc("a", 2);
 console.log("a string and b number", i);
 
+console.log("----------");
+
+// ------------------------------------------------------------------
+// 15-9-2022
+console.log("15-9-2022");
+console.log("----------");
+
+class A {
+  a: number;
+  constructor(a: number) {
+    this.a = a;
+  }
+  extend(e: number) {
+    return this.a + e;
+  }
+}
+var b: A = new A(4);
+console.log(b.extend(5));
 console.log("--------------------------");
+// --------------------------------------------------------------------
+class B {
+  a: number;
+  constructor(a: number) {
+    this.a = a;
+  }
+  extend(e: number) {
+    return this.a + e;
+  }
+  concat(a: number, e: number) {
+    // this.a = a;
+    let d = this.extend(e);
+    this.a = a;
+    return d * a;
+  }
+}
+var x: B = new B(4);
+console.log(x.concat(5, 2));
