@@ -1,4 +1,19 @@
 // 14-9-2022
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 // var a = 1;
 // console.log(typeof a);
 // var b = "1";
@@ -175,13 +190,15 @@ var A = /** @class */ (function () {
         this.a = a;
     }
     A.prototype.extend = function (e) {
-        return this.a + e;
+        // return this.a + e;
+        return e;
     };
     return A;
 }());
 var b = new A(4);
 console.log(b.extend(5));
 console.log("--------------------------");
+// --------------------------------------------------------------------
 var B = /** @class */ (function () {
     function B(a) {
         this.a = a;
@@ -190,12 +207,49 @@ var B = /** @class */ (function () {
         return this.a + e;
     };
     B.prototype.concat = function (a, e) {
-        this.a = a;
-        var d = this.extend(e);
         // this.a = a;
+        var d = this.extend(e);
+        this.a = a;
         return d * a;
     };
     return B;
 }());
 var x = new B(4);
 console.log(x.concat(5, 2));
+console.log("--------------------------");
+// --------------------------------------
+// inheritance
+// there are two things
+// 1.parent child relationship
+// 2.class and interface
+// --->class can extends another class, can implement interface,can extends another interface
+// --->but interface cannot extends class(interfae has the contract)
+var C = /** @class */ (function () {
+    function C(a) {
+        this.a = a;
+    }
+    C.prototype.extend = function (e) {
+        return this.a + e;
+    };
+    C.prototype.concat = function (a, e) {
+        // this.a = a;
+        var d = this.extend(e);
+        this.a = a;
+        return d * a;
+    };
+    return C;
+}());
+var D = /** @class */ (function (_super) {
+    __extends(D, _super);
+    function D(a) {
+        return _super.call(this, a) || this;
+    }
+    D.prototype.extend = function (e) {
+        return this.a + e + 1;
+    };
+    return D;
+}(C));
+var w = new D(3);
+console.log(w.extend(2));
+console.log(w.concat(5, 6));
+console.log("inheriting class-------------------");

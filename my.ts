@@ -208,12 +208,15 @@ console.log("15-9-2022");
 console.log("----------");
 
 class A {
-  a: number;
-  constructor(a: number) {
+  a: number | string;
+  constructor(a: number);
+  constructor(a: string);
+  constructor(a: number | string) {
     this.a = a;
   }
   extend(e: number) {
-    return this.a + e;
+    // return this.a + e;
+    return e;
   }
 }
 var b: A = new A(4);
@@ -237,3 +240,47 @@ class B {
 }
 var x: B = new B(4);
 console.log(x.concat(5, 2));
+console.log("--------------------------");
+// --------------------------------------
+// inheritance
+// there are two things
+// 1.parent child relationship
+// 2.class and interface
+// --->class can extends another class, can implement interface,can extends another interface
+// --->but interface cannot extends class(interfae has the contract)
+class C {
+  a: number;
+  constructor(a: number) {
+    this.a = a;
+  }
+  extend(e: number) {
+    return this.a + e;
+  }
+  concat(a: number, e: number) {
+    // this.a = a;
+    let d = this.extend(e);
+    this.a = a;
+    return d * a;
+  }
+}
+class D extends C {
+  // b!: string;
+  constructor(a) {
+    super(a); //inheritance initialised ,super must be called first after extending
+    // if (b != null && typeof b == "string") {
+    //   this.b = b;
+    // }
+  }
+  extend(e: number): number {
+    return this.a + e + 1;
+  }
+  myChild(s: string) {
+    return s;
+  }
+}
+let w: D = new D(3);
+console.log(w.extend(2));
+console.log(w.concat(5, 6)); //inherited from C
+console.log("inheriting class-------------------");
+let v: C = new C(5);
+// console.log(v.myChild(8))
